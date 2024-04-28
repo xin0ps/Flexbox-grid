@@ -30,32 +30,31 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function toggleOverlay() {
     var overlay = document.getElementById("overlay");
+    overlay.classList.add("show"); // Overlay'i direkt olarak göster
   
- 
-    
-      overlay.classList.remove("hidden");
-      setTimeout(() => {
-        overlay.classList.add("show");
-      }, 100);
-    
+    const items = document.querySelectorAll("#overlay a");
+  
+    items.forEach((item, index) => {
+      item.style.animation = `fadeIn 0.5s ease ${index * 0.2}s forwards`; // Animasyonlu görünme
+    });
   }
-
+  
   function exitClick() {
     var overlay = document.getElementById("overlay");
-  
+    
     if (overlay.classList.contains("show")) {
       overlay.classList.remove("show");
+      // Overlay'in tamamen gizlenmesi için bir bekleme süresi ekleyin
       setTimeout(() => {
         overlay.classList.add("hidden");
-        
-      }, 500); 
-    } 
-
+      }, 500);
+    }
   }
+  
 
 
- 
 
+  
 
 
 

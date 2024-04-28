@@ -56,13 +56,14 @@ body{
   }
   
   #overlay {
-    
-    transition: transform 0.5s ease-in-out;
-    transform: translateX(100%);
+    display: none; /* Başlangıçta overlay gizli olacak */
+    transition: opacity 0.5s ease-in-out; /* Opaklık geçiş efekti */
+    opacity: 0; /* Başlangıçta overlay'in opaklığı sıfır olacak */
   }
   
   #overlay.show {
-    transform: translateX(0);
+    display: flex; /* Overlay görünür hale gelecek */
+    opacity: 1; /* Overlay tamamen opak olacak */
   }
  
   #outerDiv:hover #svgPath {
@@ -72,5 +73,58 @@ body{
   
 
 
+  @keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+  }
 
- 
+
+
+
+
+  .btn:hover #button-text {
+    transition: 0.7s ease-in-out; 
+    transform: translateX(80px); 
+    color: white;
+}
+
+
+.btn:hover #first-svg-container {
+    transition: 0.7s ease-in-out;
+    transform: translateX(20px) scale(2.5);
+    visibility: visible;
+    opacity: 0.5;
+}
+
+
+.btn:not(:hover) #first-svg-container {
+    .btn:not(:hover) #first-svg-container {
+        transition: transform 0.7s ease-in-out, opacity 0.7s ease-in-out; 
+        transform: translateX(0);
+        opacity: 0;
+    }
+}
+
+.btn:hover #second-svg {
+    transition:0.7s ease-in-out ;
+    transform: translateX(30px); 
+    stroke: white;
+}
+
+.btn:not(hover) #button-text {
+    transition: 0.7s ease-in-out; 
+    transform: translateX(px); 
+    color:  black; 
+}
+
+.btn:not(hover) #second-svg {
+    transition: transform 0.7s ease-in-out, stroke 0.7s ease-in-out; 
+    transform: translateX(0);
+    stroke: #747474; 
+}

@@ -1,4 +1,5 @@
 window.onload = function() {
+   
  
     document.querySelector('.loading').style.transform = 'translateY(0)';
     
@@ -14,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var width = 0;
     var interval = setInterval(function() {
         width += 1;
-        progressBar.style.width = width + "%";
+        progressBar.style.width = width + "%";  
         if (width >= 100) {
             clearInterval(interval);
             var preloader = document.querySelector(".loader");
@@ -26,9 +27,49 @@ document.addEventListener("DOMContentLoaded", function() {
     }, 20); 
 });
 
-function toggleNavbar() {
-    var navbar = document.getElementById('navbar');
-    navbar.classList.toggle('menubar');
-}
 
+function toggleOverlay() {
+    var overlay = document.getElementById("overlay");
   
+ 
+    
+      overlay.classList.remove("hidden");
+      setTimeout(() => {
+        overlay.classList.add("show");
+      }, 100);
+    
+  }
+
+  function exitClick() {
+    var overlay = document.getElementById("overlay");
+  
+    if (overlay.classList.contains("show")) {
+      overlay.classList.remove("show");
+      setTimeout(() => {
+        overlay.classList.add("hidden");
+        
+      }, 500); 
+    } 
+
+  }
+
+
+ 
+const outerDiv = document.getElementById('outerDiv');
+
+const svgPath = document.getElementById('svgPath');
+
+outerDiv.addEventListener('mouseenter', function() {
+    
+    svgPath.setAttribute('stroke', '#fff'); 
+});
+
+outerDiv.addEventListener('mouseleave', function() {
+
+    svgPath.setAttribute('stroke', '#E9204F'); 
+});
+
+
+
+
+

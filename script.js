@@ -30,12 +30,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function toggleOverlay() {
     var overlay = document.getElementById("overlay");
-    overlay.classList.add("show"); // Overlay'i direkt olarak göster
+    overlay.classList.add("show"); 
   
     const items = document.querySelectorAll("#overlay a");
   
     items.forEach((item, index) => {
-      item.style.animation = `fadeIn 0.5s ease ${index * 0.2}s forwards`; // Animasyonlu görünme
+      item.style.animation = `fadeIn 0.5s ease ${index * 0.2}s forwards`;
     });
   }
   
@@ -44,18 +44,34 @@ function toggleOverlay() {
     
     if (overlay.classList.contains("show")) {
       overlay.classList.remove("show");
-      // Overlay'in tamamen gizlenmesi için bir bekleme süresi ekleyin
+     
       setTimeout(() => {
         overlay.classList.add("hidden");
       }, 500);
     }
   }
+
+  const slider = document.querySelector('.slider');
+  const slides = document.querySelectorAll('.slide');
+  const buttons = document.querySelectorAll('.slider-button');
+
+  let index = 0;
+
+  function updateSlider() {
+      slider.style.transform = `translateX(-${index * 100}%)`;
+      buttons.forEach(button => button.classList.remove('active'));
+      buttons[index].classList.add('active');
+  }
+
+  buttons.forEach((button, i) => {
+      button.addEventListener('click', () => {
+          index = i;
+          updateSlider();
+      });
+  });
+
+  setInterval(() => {
+      index = (index + 1) % slides.length;
+      updateSlider();
+  }, 3000);
   
-
-
-
-  
-
-
-
-

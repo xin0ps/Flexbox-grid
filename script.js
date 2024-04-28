@@ -55,19 +55,6 @@ function toggleOverlay() {
 
 
  
-const outerDiv = document.getElementById('outerDiv');
-
-const svgPath = document.getElementById('svgPath');
-
-outerDiv.addEventListener('mouseenter', function() {
-    
-    svgPath.setAttribute('stroke', '#fff'); 
-});
-
-outerDiv.addEventListener('mouseleave', function() {
-
-    svgPath.setAttribute('stroke', '#E9204F'); 
-});
 
 
 

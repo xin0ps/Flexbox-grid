@@ -65,8 +65,12 @@ body{
     transform: translateX(0);
   }
  
-
-#svgPath:hover{
+  #outerDiv:hover #svgPath {
+    transition: 1s ease-in-out;
     stroke: white;
-}
+  }
+  
+
+
+
  

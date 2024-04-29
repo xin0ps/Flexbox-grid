@@ -56,14 +56,14 @@ body{
   }
   
   #overlay {
-    display: none; /* Başlangıçta overlay gizli olacak */
-    transition: opacity 0.5s ease-in-out; /* Opaklık geçiş efekti */
-    opacity: 0; /* Başlangıçta overlay'in opaklığı sıfır olacak */
+    display: none; 
+    transition: opacity 0.5s ease-in-out; 
+    opacity: 0;
   }
   
   #overlay.show {
-    display: flex; /* Overlay görünür hale gelecek */
-    opacity: 1; /* Overlay tamamen opak olacak */
+    display: flex; 
+    opacity: 1;
   }
  
   #outerDiv:hover #svgPath {
